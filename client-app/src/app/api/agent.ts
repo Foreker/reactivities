@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { resolve } from "path/posix";
-import { Activity } from "../../models/activity";
+import { Activity } from "../models/activity";
 
 const sleep = (delay:number) => {
     return new Promise((resolve) => {
@@ -8,7 +7,7 @@ const sleep = (delay:number) => {
     })
 }
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://localhost:5002/api';
 
 axios.interceptors.response.use(async Response => {
     try {
