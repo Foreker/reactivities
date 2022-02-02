@@ -1,24 +1,22 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Button, Container, Menu, Image } from 'semantic-ui-react';
-import { useStore } from '../stores/store';
 
 export default function NavBar() {
-    const {activityStore} = useStore();
-
     return (
         <Menu inverted fixed='top'>
             <Container>
-                <Menu.Item>
-                    <Image size="mini" src="./assets/logo.png" alt="logo" style={{marginRight: "10px"}} />        
+                <Menu.Item as={NavLink} to='/' exact header>
                     <Image size="mini" src="https://react.semantic-ui.com/logo.png" style={{marginRight: "10px"}}/>
+                    {/* <Image size="mini" src="./assets/logo.png" alt="logo" style={{marginRight: "10px"}} />         */}
                     Reactivities
                 </Menu.Item>
-                <Menu.Item name='Inicio'>
+                <Menu.Item as={NavLink} to='/personal' name='Personal'>
                 </Menu.Item>
-                <Menu.Item name='Activities'>
+                <Menu.Item as={NavLink} to='/activities' name='Activities'>
                 </Menu.Item>
                 <Menu.Item>
-                    <Button onClick={() => activityStore.openForm()} positive content='Create Acivity' />
+                    <Button as={NavLink} to='/createActivity' name='CreateActivity' positive content='Create Acivity' />
                 </Menu.Item>
             </Container>
         </Menu>
